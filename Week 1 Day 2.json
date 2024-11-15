@@ -1,0 +1,3072 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Week 1 Day 2\n",
+        "\n",
+        " - Sets\n",
+        " - Dictionaries\n",
+        " - For/While loops\n",
+        " - Conditionals"
+      ],
+      "metadata": {
+        "id": "wmzElSFtVQef"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We have seen so far that we can store data in lists and tuples.\n",
+        "\n",
+        "Python allows us to store data in two more ways, using sets and dictionaries.\n",
+        "\n",
+        "In other words, there are 4 built-in data types in Python used to store collections of data: **List**, **Tuple**, **Set** and **Dictionary**."
+      ],
+      "metadata": {
+        "id": "FJhF0j_IWfGE"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Sets"
+      ],
+      "metadata": {
+        "id": "Qkf7ur-3WOV4"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "A **Set** is a collection of data which is unordered, immutable, unindexed, and contains **unique** elements.\n",
+        "\n",
+        "A set is enclosed by { } brackets and the items are separated by commas.\n"
+      ],
+      "metadata": {
+        "id": "dNaByUmpWTDm"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# We can define a set in the following manner\n",
+        "x = {1, 2, 3, 2, 2, 2}\n",
+        "x"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SW0jez_bWPeG",
+        "outputId": "2e61d71f-82e5-4d7a-d572-ef56a956ad52"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{1, 2, 3}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# We can use a casting from a list to a set to remove duplicate elements in a list\n",
+        "x = [1, 2, 2, 3, 3, 4, 4, 1, 1, 1, 1, 1]\n",
+        "\n",
+        "print('---- list before casting ----')\n",
+        "print(x)\n",
+        "print('---- set after casting ----')\n",
+        "print(set(x))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gAsUfidEXzG7",
+        "outputId": "f7005f9f-94b9-46e7-94c5-13c1d88b1569"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "---- list before casting ----\n",
+            "[1, 2, 2, 3, 3, 4, 4, 1, 1, 1, 1, 1]\n",
+            "---- set after casting ----\n",
+            "{1, 2, 3, 4}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Accessing set elements"
+      ],
+      "metadata": {
+        "id": "gsjYKGq0YZM9"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Since sets are unindexed, we can't access elements of a set with indexing or slicing.\n",
+        "\n",
+        "However, we can access elements of a set by iterating over them, which we will see after we learn about loops later in this class."
+      ],
+      "metadata": {
+        "id": "vGgIpCdDYgr0"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Functions for working with sets"
+      ],
+      "metadata": {
+        "id": "dkdI1fJyY1sz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **add()** and **remove()**"
+      ],
+      "metadata": {
+        "id": "hiN99LdVZPuy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4}\n",
+        "print(f'x = {x}\\n')\n",
+        "\n",
+        "# We can add different data type elements into a set, as long as the elements are of immutable data types (we can't add a mutable object into an immutable data structure)\n",
+        "# For example, we can't add an element that is a list, since lists are mutable\n",
+        "x.add(7)\n",
+        "x.add('7')\n",
+        "x.add((-1, -2))\n",
+        "print(f'x = {x}\\n')\n",
+        "\n",
+        "x.remove(2)\n",
+        "print(f'x = {x}\\n')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Gb0aSfZWYKly",
+        "outputId": "d4cec7e1-74f0-410b-d4b5-9985cf16381d"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {1, 2, 3, 4}\n",
+            "\n",
+            "x = {'7', 1, 2, 3, 4, (-1, -2), 7}\n",
+            "\n",
+            "x = {'7', 1, 3, 4, (-1, -2), 7}\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **clear()**"
+      ],
+      "metadata": {
+        "id": "LoNy-RSnaCzk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4}\n",
+        "print(f'x = {x}\\n')\n",
+        "\n",
+        "x.clear()\n",
+        "print(f'x = {x}\\n')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eefjX4kqaCD2",
+        "outputId": "5212cca8-2473-4276-e6fd-0be2bb3ae199"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {1, 2, 3, 4}\n",
+            "\n",
+            "x = set()\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### set arithmetic operations\n",
+        "\n",
+        "\n",
+        "\n",
+        "*   **intersection()**\n",
+        "\n",
+        "*   **union()**\n",
+        "*   **difference()**\n",
+        "\n",
+        "\n",
+        "*   **isdisjoint()**\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "HJCyfFhWaLmT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Intersection\n",
+        "x = {1, 2, 3, 4}\n",
+        "y = {3, 4, 5, 6}\n",
+        "\n",
+        "print(x.intersection(y))\n",
+        "print(y.intersection(x))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Wyvzanr8aJE6",
+        "outputId": "0dac0957-830a-47c8-d280-35f3e117e85f"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{3, 4}\n",
+            "{3, 4}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# We can also perform an intersection of multiple sets using the 'intersection()' function\n",
+        "x = {1, 2, 3, 4}\n",
+        "y = {3, 4, 5, 6}\n",
+        "z = {7, 8, 3, 4}\n",
+        "\n",
+        "set.intersection(x, y, z)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OGEGWdg0bbJR",
+        "outputId": "36e7f8a2-417f-4610-e745-2dc5cb9f0d6c"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{3, 4}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Union\n",
+        "x = {1, 2, 3, 4}\n",
+        "y = {3, 4, 5, 6}\n",
+        "\n",
+        "print(x.union(y))\n",
+        "print(y.union(x))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GFo5NChVamY2",
+        "outputId": "5d6795c5-fffc-4378-a853-2df83126e164"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{1, 2, 3, 4, 5, 6}\n",
+            "{1, 2, 3, 4, 5, 6}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Difference\n",
+        "x = {1, 2, 3, 4}\n",
+        "y = {3, 4, 5, 6}\n",
+        "\n",
+        "print(x.difference(y))\n",
+        "print(y.difference(x))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_6qQWM2bawYs",
+        "outputId": "04f373e1-8001-46cd-8b21-6d6716084fb0"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{1, 2}\n",
+            "{5, 6}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Checking if sets are disjoint\n",
+        "x = {1, 2, 3, 4}\n",
+        "y = {3, 4, 5, 6}\n",
+        "z = {7, 8, 9, 10}\n",
+        "\n",
+        "print(x.isdisjoint(y))\n",
+        "print(y.isdisjoint(z))\n",
+        "print(x.isdisjoint(z))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7RMYq5Uca10q",
+        "outputId": "196b01d0-4c9e-4433-b749-37083f459671"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "False\n",
+            "True\n",
+            "True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **pop()**"
+      ],
+      "metadata": {
+        "id": "mlaGTvYRbojk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4}\n",
+        "print(f'x = {x}\\n')\n",
+        "\n",
+        "print(x.pop())\n",
+        "print(x.pop())\n",
+        "print(f'x = {x}\\n')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JNr3iXnibSiT",
+        "outputId": "3d78c72a-36bb-4675-873a-3be8c788e833"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {1, 2, 3, 4}\n",
+            "\n",
+            "1\n",
+            "2\n",
+            "x = {3, 4}\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **update()**"
+      ],
+      "metadata": {
+        "id": "gPS2m1iLb4K0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4}\n",
+        "y = {3, 4, 5, 6}\n",
+        "\n",
+        "print(f'x = {x}')\n",
+        "print(f'y = {y}\\n')\n",
+        "\n",
+        "# We can use the 'update' function to add all elements from set y into set x, i.e. we store a set union into x\n",
+        "x.update(y)\n",
+        "\n",
+        "print(f'x = {x}')\n",
+        "print(f'y = {y}\\n')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6QixmbqMbtYh",
+        "outputId": "4052120a-5b2e-4f4d-8e88-c209b2550a79"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {1, 2, 3, 4}\n",
+            "y = {3, 4, 5, 6}\n",
+            "\n",
+            "x = {1, 2, 3, 4, 5, 6}\n",
+            "y = {3, 4, 5, 6}\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Casting sets from and to different collections"
+      ],
+      "metadata": {
+        "id": "RfE3thdl0kjN"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*   **tuple()**\n",
+        "*   **list()**\n",
+        "*   **set()**"
+      ],
+      "metadata": {
+        "id": "_lFPaCGU0rgv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "list_1 = [1, 2, 2, 3]\n",
+        "tuple_1 = (4, 5, 6)\n",
+        "set_1 = {7, 8, 9}\n",
+        "\n",
+        "print(f'list_1 = {list_1}\\n')\n",
+        "print(f'tuple_1 = {tuple_1}\\n')\n",
+        "print(f'set_1 = {set_1}\\n')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Gn8kP7MC0WpO",
+        "outputId": "6056e18e-a1f4-4168-fd04-3c5afe6d5716"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "list_1 = [1, 2, 2, 3]\n",
+            "\n",
+            "tuple_1 = (4, 5, 6)\n",
+            "\n",
+            "set_1 = {8, 9, 7}\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Cast a list to a set - set(list_var)\n",
+        "set(list_1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UrZs491C1Rhc",
+        "outputId": "749718d4-4d62-43f6-f35d-fffa3a2c9a5e"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{1, 2, 3}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Cast a tuple to a set - set(list_var)\n",
+        "set(tuple_1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zq6P1iIq1L9Q",
+        "outputId": "05a4bdee-9cd7-448a-87ef-8f9b238b7539"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{4, 5, 6}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Cast a set to a list - list(set_var)\n",
+        "list(set_1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1C1z4mkW1Ujm",
+        "outputId": "ea32a3a5-eb79-4503-dc5a-a196a45e6a62"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[8, 9, 7]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Cast a set to a tuple - tuple(set_var)\n",
+        "tuple(set_1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qC8-MRww1VqF",
+        "outputId": "be336a7b-909b-48da-f67d-e92d4627a93f"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(8, 9, 7)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Dictionaries"
+      ],
+      "metadata": {
+        "id": "cgFHlFJ71aEC"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "A **Dictionary** is a mutable data structure that allow you to store key-value pairs.\n",
+        "\n",
+        "The dictionary is enclosed in { } brackets, and key-value pairs are separated by commas. Each key-value pair is in format **key : value**.\n"
+      ],
+      "metadata": {
+        "id": "LO00visH1mqy"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# We can define a dictionary in the following manner\n",
+        "dictionary = {'key 1' : 'val 1', 'key 2' : 'val 2', 1 : -1.1, 'list' : [2, 4, 6]}\n",
+        "dictionary"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kDzdwbZB1bsa",
+        "outputId": "6fa9bb99-8d61-43bf-ecb3-eeae8af70e26"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'key 1': 'val 1', 'key 2': 'val 2', 1: -1.1, 'list': [2, 4, 6]}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Accessing dictionary elements"
+      ],
+      "metadata": {
+        "id": "7dnJYcmx2N_M"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We can access dictionary elements' values by using their keys."
+      ],
+      "metadata": {
+        "id": "TAJy6go32t6O"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1, '10' : True}\n",
+        "x"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TLuBthV81zyg",
+        "outputId": "27f5eaf1-1787-4e44-c6d9-32031567c0cf"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'key 1': 1, 'key 2': 2, '3': -1, '10': True}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x['key 1']"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wPMJtaO42aVt",
+        "outputId": "e637d95f-57aa-4720-e09a-dbdad8300b79"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x['3']"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SvyXAxG72e07",
+        "outputId": "7eeadc2e-a1d3-4d86-a3dc-d23f665f3c21"
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "-1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x['10']"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kGq7iPuRJ90-",
+        "outputId": "14b26fc4-b170-4cc4-f9e4-28bfa452ebc9"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We can also access dictionary elements by iterating through them using for/while loops, which we will show later in this class.\n"
+      ],
+      "metadata": {
+        "id": "p29jYfe-27cw"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "We can **add new elements** into a dictionary by simply asigning value to a new key."
+      ],
+      "metadata": {
+        "id": "bZYjjpQg3HpE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x['new key'] = 'new value'\n",
+        "x"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kFtvQJk623WM",
+        "outputId": "bcc0e901-1d0f-40db-e987-4ca241548d6f"
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'key 1': 1, 'key 2': 2, '3': -1, '10': True, 'new key': 'new value'}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Functions for working with dictionaries"
+      ],
+      "metadata": {
+        "id": "rZeeDyjN3fzR"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **keys()**\n"
+      ],
+      "metadata": {
+        "id": "0gpcDdan3md1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "list(x.keys())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "294GhYG13cIx",
+        "outputId": "3fe34c31-2661-47dc-e997-1574e63cce8f"
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['key 1', 'key 2', '3']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **values()**"
+      ],
+      "metadata": {
+        "id": "Hz5J8v1-3qHL"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "list(x.values())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SxP1XT673rnq",
+        "outputId": "b0116d55-48f8-4f26-cef3-3458d853f306"
+      },
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[1, 2, -1]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **items()**"
+      ],
+      "metadata": {
+        "id": "5Oo6mAss3tTz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "list(x.items())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "x-ejXTTL3ui9",
+        "outputId": "8fe97c70-5ada-48f2-f947-faaf887123aa"
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[('key 1', 1), ('key 2', 2), ('3', -1)]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **pop(key)**"
+      ],
+      "metadata": {
+        "id": "6XM0ozIA3wRX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "y = x.pop('key 1')\n",
+        "\n",
+        "print(f'x = {x}, popped element = {y}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tveBXuaB3yBF",
+        "outputId": "7c541ac0-97f0-4b98-f36a-004509238a31"
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {'key 2': 2, '3': -1}, popped element = 1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **setdefault(key, default=value)**"
+      ],
+      "metadata": {
+        "id": "s_Wq7E4-30BN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "print(f'x = {x}')\n",
+        "\n",
+        "x.setdefault(-1)\n",
+        "print(f'x = {x}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tn6bkWm234ao",
+        "outputId": "7198ace7-4adb-47cf-f37c-cea56660865d"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {'key 1': 1, 'key 2': 2, '3': -1}\n",
+            "x = {'key 1': 1, 'key 2': 2, '3': -1, -1: None}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x.setdefault(10, [])\n",
+        "print(f'x = {x}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "G7iXcjkK5OTU",
+        "outputId": "413d710e-11af-4082-a1fc-e4bf21df85f6"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {'key 1': 1, 'key 2': 2, '3': -1, -1: None, 10: []}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "print(f'x = {x}')\n",
+        "\n",
+        "# x.setdefault('new', [])\n",
+        "x['new'] = []\n",
+        "print(f'x = {x}')\n",
+        "\n",
+        "x['new'].append(True)\n",
+        "x['new'].append(4)\n",
+        "print(f'x = {x}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ptRK9P3s5esE",
+        "outputId": "35883e31-ccf1-4dbb-b0da-cdc483277e92"
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = {'key 1': 1, 'key 2': 2, '3': -1}\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'key 1': 1, 'key 2': 2, '3': -1, 'new': [4]}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 40
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Casting dictionaries"
+      ],
+      "metadata": {
+        "id": "TKRNDhyT37MY"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Casting with dictionaries cannot be directly performed.\n",
+        "\n",
+        "We cannot use the `dict()` function on, e.g. lists, tuples, and sets, to cast them to a dictionary, because the items (elements) in those data types are not like the ones in dictionaries (item in dictionary is (key, val)).\n",
+        "\n",
+        "Therefore, if we want to cast, or to be more accurate - alter, some data type to a dictionary, we need to implement our own logic, which we will see later in this lecture.\n",
+        "\n",
+        "However, we can cast dict.keys(), dict.values(), and dict.items() to lists, tuples, or sets."
+      ],
+      "metadata": {
+        "id": "LegohJar5qgi"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Conditionals: If and If-Else statements"
+      ],
+      "metadata": {
+        "id": "Z1FZ4jec80M2"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Conditional statements are statements in Python that provide a choice for the control flow based on a condition.\n",
+        "\n",
+        "It means that the control flow of the Python program will be decided based on the outcome of the condition.\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "e_OfCuV2864M"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Let's try to understand this better by using an example.\n",
+        "\n",
+        "\n",
+        "If a teacher tells the students the following conditional statement:\n",
+        "\n",
+        "> **If** you do your homework today, you will get extra points. **Else**, you will not get extra points.\n",
+        "\n",
+        "\n",
+        "We can see that depending on the criteria a student meets, they will either be rewarded extra points, or not.\n",
+        "\n",
+        "So, we can make a parallel to our Pyhon code, that will or will not be executed based on some condition, i.e. in this manner we control the flow of the code (program).\n"
+      ],
+      "metadata": {
+        "id": "-2gcqG2B9lm9"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **If** statement\n",
+        "   \n",
+        "If the **condition** is evaluated **True**, then execute the code inside the IF block of commands (the code that is indented to the right).\n",
+        "\n",
+        "If the **condition** is evaluated **False**, then do **not** execute the code inside the IF block of commands.\n",
+        "\n",
+        "\n",
+        "\n",
+        "Then, continue to execute the code after the if statement."
+      ],
+      "metadata": {
+        "id": "MDq5MffdAYWZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if condition:\n",
+        "    # code\n",
+        "\n",
+        "# code after if statement"
+      ],
+      "metadata": {
+        "id": "O-xPLsCl81rg"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **If-Else** statement"
+      ],
+      "metadata": {
+        "id": "vdkV_-u0ApWB"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "If the **condition** is evaluated **True**, then execute **only** the code inside the if part (and do **not** execute the code in the else part).\n",
+        "\n",
+        "If the **condition** is evaluated **False**, then execute **only** the code inside the else part (and do **not** execute the code in the if part).\n",
+        "\n",
+        "\n",
+        "Then, continue to execute the code after the if-else statement."
+      ],
+      "metadata": {
+        "id": "YNgR0C9LAuTi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if condition:\n",
+        "    # code\n",
+        "else:\n",
+        "    # code\n",
+        "\n",
+        "# code after if-else statement"
+      ],
+      "metadata": {
+        "id": "rmNXB2YxAsY_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **If-Elif-Else** statement"
+      ],
+      "metadata": {
+        "id": "JB4CJVbzBBVV"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "If **condition_1** is evaluated **True**, then execute **only** the code inside the if part for that condition (and do **not** execute the code in the elif and else parts).\n",
+        "\n",
+        "If **condition_1** is evaluated **False** and **condition_2** is evaluated **True**, then execute **only** the code inside the elif part (and do **not** execute the code in the if and else parts).\n",
+        "\n",
+        "If **condition_1** and **condition_2** are both evaluated **False**, then execute **only** the code inside the else part.\n",
+        "\n",
+        "\n",
+        "Then, continue to execute the code after the if-elif-else statement."
+      ],
+      "metadata": {
+        "id": "1oj0ae7VBHYk"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if condition_1:\n",
+        "    # code\n",
+        "elif condition_2:\n",
+        "    # code\n",
+        "else:\n",
+        "    # code\n",
+        "\n",
+        "# code after if-elif-else statement"
+      ],
+      "metadata": {
+        "id": "2WLMsancBW-O"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Exercises for conditionals"
+      ],
+      "metadata": {
+        "id": "oMA8oFfWBfth"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 1\n",
+        "\n",
+        "Define two integers in Python, named **a** and **b**.\n",
+        "\n",
+        "If **a** is greater than **b**, print f'{a} > {b}'.\n",
+        "\n",
+        "If **b** is greater than **a**, then print f'{a} < {b}'.\n",
+        "\n",
+        "If **a** and **b** are equal then print f'{a} == {b}'."
+      ],
+      "metadata": {
+        "id": "kiKn7kCCBkGd"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "wXLv8SA7Bm3Y"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a, b = 11, 7\n",
+        "\n",
+        "if a > b:\n",
+        "  print(f'{a} > {b}')\n",
+        "elif b > a:\n",
+        "  print(f'{b} > {a}')\n",
+        "else:\n",
+        "  print(f'{a} == {b}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Pe8HMdVeBi0s",
+        "outputId": "d16b0aa5-7894-4b32-e2c0-81d0df48c54c"
+      },
+      "execution_count": 60,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "11 > 7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 2\n",
+        "\n",
+        "Define an integer variable **x**.\n",
+        "\n",
+        "If **x** is an even number, then print f'{x} is even', otherwise print f'{x} is odd'."
+      ],
+      "metadata": {
+        "id": "s6EpTaSVNb0P"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "Bi1iSyIHNfcH"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = 7\n",
+        "\n",
+        "if x % 2 == 0:\n",
+        "  print(f'{x} is even')\n",
+        "else:\n",
+        "  print(f'{x} is odd')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "O1krj-7WNfOm",
+        "outputId": "e31464fa-f8a9-490f-d9da-7592cc367042"
+      },
+      "execution_count": 61,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "7 is odd\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 3\n",
+        "\n",
+        "Define a list of values called **x**.\n",
+        "\n",
+        "Check if the number 1 is in **x**. If yes, print f'1 is in {x}', else print f'1 is not in {x}'."
+      ],
+      "metadata": {
+        "id": "93z91GPDN4kv"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "3B1jIyxzN8xW"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [2, 1, 3, 'test', 8.9]\n",
+        "y = [3, 5, 'string']\n",
+        "\n",
+        "if 1 in x:\n",
+        "  print(f'1 is in {x}')\n",
+        "else:\n",
+        "  print(f'1 is not in {x}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "005wCEKuNVpa",
+        "outputId": "e5590985-42f4-4bec-f6c3-29e6dd4fcc92"
+      },
+      "execution_count": 63,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 is in [2, 1, 3, 'test', 8.9]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Class exercises"
+      ],
+      "metadata": {
+        "id": "4pB5K03oYdAZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Students' averages"
+      ],
+      "metadata": {
+        "id": "RJhnLrQOYiRv"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "avg_1 = 10\n",
+        "avg_2 = 7.9\n",
+        "avg_3 = 1\n",
+        "\n",
+        "if avg_1 <= 7.5:\n",
+        "  if avg_2 <= 7.5:\n",
+        "    print(\"no money\")\n",
+        "  elif avg_3 <= 7.5:\n",
+        "    print(\"no money\")\n",
+        "  else:\n",
+        "    print(\"money\")\n",
+        "else:\n",
+        "  if avg_2 > 7.5:\n",
+        "    print(\"money\")\n",
+        "  elif avg_3 > 7.5:\n",
+        "    print(\"money\")\n",
+        "  else:\n",
+        "    print(\"no money\")"
+      ],
+      "metadata": {
+        "id": "htDNSCGfYguO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Students' grades"
+      ],
+      "metadata": {
+        "id": "z27XFxMfYltK"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "points = 61\n",
+        "\n",
+        "if points > 90:\n",
+        "  print('10')\n",
+        "elif points > 80:\n",
+        "  print('9')\n",
+        "elif points > 70:\n",
+        "  print('8')\n",
+        "elif points > 60:\n",
+        "  print('7')\n",
+        "elif points >= 50:\n",
+        "  print('6')\n",
+        "else:\n",
+        "  print('failed exam')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CDSYQpSaYqqd",
+        "outputId": "72bd0b12-7668-42ec-cf49-c00938294b26"
+      },
+      "execution_count": 70,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Loops"
+      ],
+      "metadata": {
+        "id": "pxLZf4sJ6B5M"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Loops** are sequences of instructions that are repeated continually until a point when a certain condition is reached.\n",
+        "\n",
+        "For example, if we say we will go to the store to buy one loaf of bread each day until 15.10.2024, we will repeat the instruction (buying bread) until the condition (day is 15.10.2024) is reached."
+      ],
+      "metadata": {
+        "id": "F2O_jPQhsL0m"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "In Python we can work with **for** and **while** loops."
+      ],
+      "metadata": {
+        "id": "65EDCK_AtuJY"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **For** loops"
+      ],
+      "metadata": {
+        "id": "XhBhGLAWuK4l"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "A **for** loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, a string, or some iterable object in Python).\n",
+        "    \n",
+        "For loops repeat a logic that Python code implements, with possible changes to variables' values or other data structures.\n"
+      ],
+      "metadata": {
+        "id": "HSlYS9mRuSWo"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Iterating through a **list** using a **for** loop"
+      ],
+      "metadata": {
+        "id": "_5ZNa6ykyT6w"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "First way to iterate over a list with a for loop is by extracting the items from the list directly."
+      ],
+      "metadata": {
+        "id": "4JoAjzh5ynj4"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 2, 3, 4]\n",
+        "\n",
+        "for element in x:\n",
+        "  if element % 2 == 0:\n",
+        "      print(f'{element} is even')\n",
+        "  else:\n",
+        "      print(f'{element} is odd')\n",
+        "print('---')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eCY6o8sG6FLz",
+        "outputId": "16ee0683-af7d-4ee5-b37a-204a7c70a032"
+      },
+      "execution_count": 79,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 is odd\n",
+            "2 is even\n",
+            "3 is odd\n",
+            "4 is even\n",
+            "---\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Second way to iterate over a list with a for loop is by using the indices of the items in the list.\n",
+        "\n",
+        "**Note:** We can use the **len()** function to find the length of the list, i.e. the number of elements in the list."
+      ],
+      "metadata": {
+        "id": "lP0rKnHAzOiI"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 2, 3, 4]\n",
+        "\n",
+        "for i in range(0, len(x)):\n",
+        "  print(f'index = {i}, x[{i}] = {x[i]}')\n",
+        "print('---')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oAOetNZVyfgj",
+        "outputId": "ea329029-36eb-4cb9-9648-29e5a79e8089"
+      },
+      "execution_count": 83,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "index = 0, x[0] = 1\n",
+            "index = 1, x[1] = 2\n",
+            "index = 2, x[2] = 3\n",
+            "index = 3, x[3] = 4\n",
+            "---\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 4, 33, 55]\n",
+        "\n",
+        "for i in range(len(x)):\n",
+        "    print(f'i = {i}, x[{i}] = {x[i]}')\n",
+        "    print('---')\n",
+        "    if x[i] % 2 == 0:\n",
+        "        print(f'{x[i]} is even')\n",
+        "    else:\n",
+        "        print(f'{x[i]} is odd')\n",
+        "    print('===')\n",
+        "    print()\n",
+        "\n",
+        "print('This is code after for loop.')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "atF-bv8jzT1l",
+        "outputId": "1a7a9e05-f2ac-4981-927b-badd4d6fb53f"
+      },
+      "execution_count": 84,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "i = 0, x[0] = 1\n",
+            "---\n",
+            "1 is odd\n",
+            "===\n",
+            "\n",
+            "i = 1, x[1] = 4\n",
+            "---\n",
+            "4 is even\n",
+            "===\n",
+            "\n",
+            "i = 2, x[2] = 33\n",
+            "---\n",
+            "33 is odd\n",
+            "===\n",
+            "\n",
+            "i = 3, x[3] = 55\n",
+            "---\n",
+            "55 is odd\n",
+            "===\n",
+            "\n",
+            "This is code after for loop.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Third way to iterate over a list with a for loop is by using the enumerate() function."
+      ],
+      "metadata": {
+        "id": "23tb2-L40SW_"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 4, 33, 55]\n",
+        "\n",
+        "for index, value in enumerate(x):\n",
+        "    print(f'index = {index}, x[{index}] = {value}')\n",
+        "    print()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "b6dvBdiQzZXH",
+        "outputId": "9690b567-4fdd-4902-c74a-0deb3318775c"
+      },
+      "execution_count": 85,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "index = 0, x[0] = 1\n",
+            "\n",
+            "index = 1, x[1] = 4\n",
+            "\n",
+            "index = 2, x[2] = 33\n",
+            "\n",
+            "index = 3, x[3] = 55\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y = [0, 1, 2, 542]\n",
+        "save = [-1, -1]\n",
+        "\n",
+        "for i, val in enumerate(y):\n",
+        "    if i == 3:\n",
+        "        save[0], save[1] = i, val\n",
+        "\n",
+        "tuple(save)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BiqD9kbQ0bh3",
+        "outputId": "0039a0c7-109d-4fa9-b35d-70f83cf25014"
+      },
+      "execution_count": 86,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(3, 542)"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 86
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Iterating through a **string** using a **for** loop"
+      ],
+      "metadata": {
+        "id": "iyRFORkM16se"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "First way to iterate over a string with a for loop is by extracting the symbols from the string directly.\n",
+        "\n",
+        "**Note:** We can do this because a string is a list of characters."
+      ],
+      "metadata": {
+        "id": "M0fy3cpj2ACt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# As we said, the string is in fact a list of characters, i.e. s = ['T', 'h', 'i', 's', ' ', 'i', ...]\n",
+        "s = 'This is a string.'\n",
+        "for char in s:\n",
+        "    print(char)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "o5vUXugp0pj3",
+        "outputId": "ae7974ff-3dab-4a61-9f25-2cdee1904f95"
+      },
+      "execution_count": 87,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "T\n",
+            "h\n",
+            "i\n",
+            "s\n",
+            " \n",
+            "i\n",
+            "s\n",
+            " \n",
+            "a\n",
+            " \n",
+            "s\n",
+            "t\n",
+            "r\n",
+            "i\n",
+            "n\n",
+            "g\n",
+            ".\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Second way to iterate over a string with a for loop is by using the indices of the symbols in the string."
+      ],
+      "metadata": {
+        "id": "HhASPRai3i70"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "s = 'This is a string.'\n",
+        "\n",
+        "for i in range(len(s)):\n",
+        "    print(f'index = {i}, character (s[{i}]) = {s[i]}')\n",
+        "    print()\n",
+        "print('This is code after for loop.')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UVNHfOU72HKn",
+        "outputId": "0ed4ad85-e780-4f28-daa1-7f8d517d945f"
+      },
+      "execution_count": 88,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "index = 0, character (s[0]) = T\n",
+            "\n",
+            "index = 1, character (s[1]) = h\n",
+            "\n",
+            "index = 2, character (s[2]) = i\n",
+            "\n",
+            "index = 3, character (s[3]) = s\n",
+            "\n",
+            "index = 4, character (s[4]) =  \n",
+            "\n",
+            "index = 5, character (s[5]) = i\n",
+            "\n",
+            "index = 6, character (s[6]) = s\n",
+            "\n",
+            "index = 7, character (s[7]) =  \n",
+            "\n",
+            "index = 8, character (s[8]) = a\n",
+            "\n",
+            "index = 9, character (s[9]) =  \n",
+            "\n",
+            "index = 10, character (s[10]) = s\n",
+            "\n",
+            "index = 11, character (s[11]) = t\n",
+            "\n",
+            "index = 12, character (s[12]) = r\n",
+            "\n",
+            "index = 13, character (s[13]) = i\n",
+            "\n",
+            "index = 14, character (s[14]) = n\n",
+            "\n",
+            "index = 15, character (s[15]) = g\n",
+            "\n",
+            "index = 16, character (s[16]) = .\n",
+            "\n",
+            "This is code after for loop.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Third way to iterate over a string with a for loop is by using the enumerate() function."
+      ],
+      "metadata": {
+        "id": "2kTd8c5Q36pM"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "s = 'This is a string.'\n",
+        "\n",
+        "for i, char in enumerate(s):\n",
+        "    print(i, char)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BD37sbNR3wr0",
+        "outputId": "a84150c3-63e2-438d-f0ee-a613a2a173cd"
+      },
+      "execution_count": 89,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 T\n",
+            "1 h\n",
+            "2 i\n",
+            "3 s\n",
+            "4  \n",
+            "5 i\n",
+            "6 s\n",
+            "7  \n",
+            "8 a\n",
+            "9  \n",
+            "10 s\n",
+            "11 t\n",
+            "12 r\n",
+            "13 i\n",
+            "14 n\n",
+            "15 g\n",
+            "16 .\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Iterating through a **set** using a **for** loop"
+      ],
+      "metadata": {
+        "id": "j5iXfhOg4kiT"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "First way to iterate over a set with a for loop is by directly accessing the elements."
+      ],
+      "metadata": {
+        "id": "WLOtG5sa42bc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4, 5}\n",
+        "\n",
+        "for element in x:\n",
+        "    print(element)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ov9txvPW4CIW",
+        "outputId": "be28019b-172e-426c-a7c2-332606b6fff7"
+      },
+      "execution_count": 91,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n",
+            "5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Second way to iterate over a set with a for loop is by using the enumerate() function.\n",
+        "\n",
+        "**Note:** Sets will always remain unindexed, even though the enumerate() function assigns an index to each element of the set.\n",
+        "We can never access an element of the set, even with its assigned index value."
+      ],
+      "metadata": {
+        "id": "y_4t_5Cj5Hpr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4, 5}\n",
+        "\n",
+        "for cnt, element in enumerate(x):\n",
+        "    print(cnt, element)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EzH5SRtD46Vs",
+        "outputId": "ecc3ac06-1d1f-40bf-cc4b-72d167676a16"
+      },
+      "execution_count": 92,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 1\n",
+            "1 2\n",
+            "2 3\n",
+            "3 4\n",
+            "4 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {1, 2, 3, 4, 5}\n",
+        "\n",
+        "for cnt, element in enumerate(x, start=100):\n",
+        "    print(cnt, element)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "U78JiMWt5M27",
+        "outputId": "b29b4537-1c45-46ec-cbc8-1d75d4afbcee"
+      },
+      "execution_count": 93,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "100 1\n",
+            "101 2\n",
+            "102 3\n",
+            "103 4\n",
+            "104 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Iterating through a **tuple** using a **for** loop"
+      ],
+      "metadata": {
+        "id": "DgHMCtvx5_lM"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "First way to iterate over a tuple with a for loop is by directly accessing the elements."
+      ],
+      "metadata": {
+        "id": "gOvg5GRu6Om9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = (1, 2, 3, 4)\n",
+        "\n",
+        "for element in x:\n",
+        "    print(element)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tdEQxxgL5V1P",
+        "outputId": "3442819b-d00f-4c2c-bf78-aff290f087dc"
+      },
+      "execution_count": 94,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Second way to iterate over a tuple with a for loop is by using the indeces of the elements."
+      ],
+      "metadata": {
+        "id": "Gc1Mfkn06S2o"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = (1, 2, 3, 4)\n",
+        "\n",
+        "for idx in range(len(x)):\n",
+        "    print(idx, x[idx])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DyhTlkqs6HFu",
+        "outputId": "f689acf5-c9e7-4c94-d376-dac3115e2d1d"
+      },
+      "execution_count": 95,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 1\n",
+            "1 2\n",
+            "2 3\n",
+            "3 4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Third way to iterate over a tuple with a for loop is by using the enumerate() function."
+      ],
+      "metadata": {
+        "id": "dPN_6Xks6c7S"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = (1, 2, 3, 4)\n",
+        "\n",
+        "for idx, val in enumerate(x):\n",
+        "    print(idx, val)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yjuJg1ol6I41",
+        "outputId": "63538eae-a76c-4aa8-c693-0d76eedd153d"
+      },
+      "execution_count": 96,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 1\n",
+            "1 2\n",
+            "2 3\n",
+            "3 4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Iterating through a **dictionary** using a **for** loop"
+      ],
+      "metadata": {
+        "id": "njOcv01v6izj"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Iterating over keys** found in the dictionary and accessing value with those keys by using the **dictionary.keys()** function\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "2a9Uo7FW6sLa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "\n",
+        "for key in x.keys():\n",
+        "    print(f'{key} --> {x[key]}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OkttKyv36iBr",
+        "outputId": "0997208d-59eb-42ee-d940-8b494beb4213"
+      },
+      "execution_count": 97,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "key 1 --> 1\n",
+            "key 2 --> 2\n",
+            "3 --> -1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Iterating over entire items** found in the dictionary and accessing them by using the **dictionary.items()** function\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "i6KaSCpm6_LU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = {'key 1' : 1, 'key 2' : 2, '3' : -1}\n",
+        "\n",
+        "for key, val in x.items():\n",
+        "    print(f'{key} --> {val}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-6WZR5GS68eZ",
+        "outputId": "2c683eeb-c043-4912-df7e-1dc64fe41ccc"
+      },
+      "execution_count": 98,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "key 1 --> 1\n",
+            "key 2 --> 2\n",
+            "3 --> -1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **While** loops"
+      ],
+      "metadata": {
+        "id": "yhZIrw1p7cGD"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "A **while** loop is used to execute a block of statements repeatedly as long as a given condition is satisfied.\n",
+        "\n",
+        "If the condition is not satisfied, the code in the while loop is not executed, and Python goes on to execute code after (outside) of the while loop.\n"
+      ],
+      "metadata": {
+        "id": "b8ijpUK87ntS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Iterating through **collections** using a **while** loop"
+      ],
+      "metadata": {
+        "id": "O8CRkIB88Ate"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 2, 3, 4]\n",
+        "\n",
+        "i = 0\n",
+        "while i < len(x):\n",
+        "    print(i, x[i])\n",
+        "    i = i + 1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UT4X_s0r7dbe",
+        "outputId": "fd30c672-a39f-49a9-ad34-36bc84cd03fc"
+      },
+      "execution_count": 102,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 1\n",
+            "1 2\n",
+            "2 3\n",
+            "3 4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 2, 3, 4]\n",
+        "print(f'x = {x}\\n')\n",
+        "\n",
+        "while len(x) != 0:\n",
+        "    element = x.pop(0)\n",
+        "    print(f'element = {element}, x = {x}\\n')\n",
+        "\n",
+        "print(f'x = {x}\\n')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fMm8g9x38JlC",
+        "outputId": "c3a4ab98-b92c-47c1-b520-b0b84e8e6464"
+      },
+      "execution_count": 103,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "x = [1, 2, 3, 4]\n",
+            "\n",
+            "element = 1, x = [2, 3, 4]\n",
+            "\n",
+            "element = 2, x = [3, 4]\n",
+            "\n",
+            "element = 3, x = [4]\n",
+            "\n",
+            "element = 4, x = []\n",
+            "\n",
+            "x = []\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Exercises"
+      ],
+      "metadata": {
+        "id": "8k57x2TnOy89"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 4.1\n",
+        "\n",
+        "Define a list of numbers called **x**.\n",
+        "\n",
+        "Then print all the even numbers within the list."
+      ],
+      "metadata": {
+        "id": "UdauAvzvO8ih"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "Txn9FCLtO_Qg"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 232, 223, 444, 123, 6565, 66364]\n",
+        "\n",
+        "for item in x:\n",
+        "    if item % 2 == 0:\n",
+        "        print(item)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PFg2CeGVOz6D",
+        "outputId": "68c4ac04-5de4-4898-c891-7b392cde8ecd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "232\n",
+            "444\n",
+            "66364\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 4.2\n",
+        "\n",
+        "Solve the problem from Exercise 4.1. again, but now by storing the result in a new list."
+      ],
+      "metadata": {
+        "id": "ZLqLe3cdQsVo"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "Vx4E_qATQsVp"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 232, 223, 444, 123, 6565, 66364]\n",
+        "result = []\n",
+        "\n",
+        "for item in x:\n",
+        "    if item % 2 == 0:\n",
+        "        result.append(item)\n",
+        "\n",
+        "result"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "04f8d78f-287a-450a-b648-db757a754bdd",
+        "id": "hbuBDufDQsVq"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[232, 444, 66364]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 43
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 5.1\n",
+        "\n",
+        "Define a list of numbers called **x**.\n",
+        "\n",
+        "Then create two lists, one containing the even numbers from the list **x**, and one containing the odd numbers from the list **x**."
+      ],
+      "metadata": {
+        "id": "fiPNNmLuRniA"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "T3KKwd52RniI"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [1, 232, 223, 444, 123, 6565, 66364]\n",
+        "result_even = []\n",
+        "result_odd = []\n",
+        "\n",
+        "for item in x:\n",
+        "    if item % 2 == 0:\n",
+        "        result_even.append(item)\n",
+        "    else:\n",
+        "        result_odd.append(item)"
+      ],
+      "metadata": {
+        "id": "XlwlE3AMRniI"
+      },
+      "execution_count": 111,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for item in result_even:\n",
+        "  print(item)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HUz7Jc7CU0TL",
+        "outputId": "9bcfe220-a80e-415c-fe9d-ad6b52780850"
+      },
+      "execution_count": 112,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "232\n",
+            "444\n",
+            "66364\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "result_odd"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Vy-DoGp1Ux4G",
+        "outputId": "ddd868ca-4823-47bd-822f-a0bdf1fa1a2e"
+      },
+      "execution_count": 113,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[1, 223, 123, 6565]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 113
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 5.2\n",
+        "\n",
+        "Solve the task from Exercise 5.1, but now create the list of numbers at random.\n",
+        "\n",
+        "**Note:** Use the **random** module."
+      ],
+      "metadata": {
+        "id": "1n32vxP_VJLr"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "yCnnfDBCVJLr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "x = []\n",
+        "for _ in range(20):\n",
+        "    x.append(random.randint(1, 100))\n",
+        "\n",
+        "result_even = []\n",
+        "result_odd = []\n",
+        "\n",
+        "for item in x:\n",
+        "    if item % 2 == 0:\n",
+        "        result_even.append(item)\n",
+        "    else:\n",
+        "        result_odd.append(item)\n",
+        "\n",
+        "print(f'all numbers: {x}')\n",
+        "print(f'even numbers: {result_even}')\n",
+        "print(f'odd numbers: {result_odd}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RuvRxUP4U209",
+        "outputId": "9f0930bf-0691-4bc9-dc0f-c5a9916236ed"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "all numbers: [93, 6, 72, 5, 70, 87, 92, 68, 17, 38, 87, 19, 71, 94, 43, 76, 98, 22, 39, 15]\n",
+            "even numbers: [6, 72, 70, 92, 68, 38, 94, 76, 98, 22]\n",
+            "odd numbers: [93, 5, 87, 17, 87, 19, 71, 43, 39, 15]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 6\n",
+        "\n",
+        "Define a list of elements of different types called **x**.\n",
+        "\n",
+        "Define two integer values representing indeces in the list, called **i** and **j**.\n",
+        "\n",
+        "Check if the element at index **i** is the same as the element at index **j** within the list.\n"
+      ],
+      "metadata": {
+        "id": "332frEAoYzMC"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = [2, 5, 7.8, 5, \"text\", [2, 3], 9.2, 'a']\n",
+        "\n",
+        "i = 2\n",
+        "j = 5\n",
+        "\n",
+        "if x[i] == x[j]:\n",
+        "  print(f'The elements at positions {i} and {j} in the list {x} are equal.')\n",
+        "else:\n",
+        "  print(f'The elements at positions {i} and {j} in the list {x} are not equal.')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5VaHkTGpVncA",
+        "outputId": "0775668e-4803-41fb-dc32-300fa6148074"
+      },
+      "execution_count": 114,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The elements at positions 2 and 5 in the list [2, 5, 7.8, 5, 'text', [2, 3], 9.2, 'a'] are not equal.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 7\n",
+        "\n",
+        "Define a list of integers.\n",
+        "\n",
+        "Find the maximum element in the list, i.e. the largest number."
+      ],
+      "metadata": {
+        "id": "YCsHZY15avps"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "uE5WoNuWa6vo"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(\"Please enter 5 numbers...\")\n",
+        "l = []\n",
+        "for _ in range(5):\n",
+        "  l.append(int(input()))\n",
+        "print(l)\n",
+        "\n",
+        "max = x[0]\n",
+        "for item in l:\n",
+        "  max = 0\n",
+        "  if item > max:\n",
+        "    max = item\n",
+        "\n",
+        "print(max)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cZh9o41GaPmj",
+        "outputId": "4ea5bc89-ed56-48f8-cd46-c43568a5a37e"
+      },
+      "execution_count": 120,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Please enter 4 numbers...\n",
+            "-1\n",
+            "-20\n",
+            "-2\n",
+            "-33\n",
+            "[-1, -20, -2, -33]\n",
+            "0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 8\n",
+        "\n",
+        "Define a list of integers.\n",
+        "\n",
+        "Find the first occurrence of an odd number in the list."
+      ],
+      "metadata": {
+        "id": "J5csKA4mbcjj"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Note:** We can use a **break** statement to exit the loop at the point we want to, before its natural end."
+      ],
+      "metadata": {
+        "id": "dn66twbjZ-q9"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "Ozk9RjetbkJ7"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "n, a, b = 7, 20, 100\n",
+        "\n",
+        "l = []\n",
+        "for _ in range(n):\n",
+        "    l.append(random.randint(a, b))\n",
+        "print(f'l = {l}\\n')\n",
+        "\n",
+        "i = 0\n",
+        "\n",
+        "while i < len(l):\n",
+        "  if l[i] % 2 != 0:\n",
+        "    print(f'The first odd number in {l} is {l[i]} at index {i}.')\n",
+        "    break\n",
+        "  else:\n",
+        "    i = i + 1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bbHcGJFibUeo",
+        "outputId": "4342093f-09b3-434c-d5ca-b533d638f011"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "l = [34, 100, 100, 32, 69, 24, 62]\n",
+            "\n",
+            "The first odd number in [34, 100, 100, 32, 69, 24, 62] is 69 at index 4.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# There is a slight difference between this solution and the solution above, yet they both work well. How?\n",
+        "n, a, b = 7, 20, 100\n",
+        "\n",
+        "l = []\n",
+        "for _ in range(n):\n",
+        "    l.append(random.randint(a, b))\n",
+        "print(f'l = {l}\\n')\n",
+        "\n",
+        "i = 0\n",
+        "\n",
+        "while i < len(l):\n",
+        "  if l[i] % 2 != 0:\n",
+        "    print(f'The first odd number in {l} is {l[i]} at index {i}.')\n",
+        "    break\n",
+        "  i = i + 1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y1tmW9-Gb9Zp",
+        "outputId": "18220fe4-21c4-42af-b03d-20491476e620"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "l = [61, 63, 79, 42, 78, 78, 40]\n",
+            "\n",
+            "The first odd number in [61, 63, 79, 42, 78, 78, 40] is 61 at index 0.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 9\n",
+        "\n",
+        "Define a list of integers.\n",
+        "\n",
+        "Find the last occurrence of an even number in the list."
+      ],
+      "metadata": {
+        "id": "wXMpTjmocRsz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "igAA_QqacyxP"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "n, a, b = 7, 20, 100\n",
+        "\n",
+        "l = []\n",
+        "for _ in range(n):\n",
+        "    l.append(random.randint(a, b))\n",
+        "print(f'l = {l}\\n')\n",
+        "\n",
+        "i = len(l) - 1\n",
+        "\n",
+        "while i >= 0:\n",
+        "  if l[i] % 2 == 0:\n",
+        "    print(f'The last even number in {l} is {l[i]} at index {i}.')\n",
+        "    break\n",
+        "  i = i - 1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "grKVVLe3cDBc",
+        "outputId": "b94fb086-e160-4d28-e5fa-3d083e9f648f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "l = [98, 41, 89, 72, 83, 92, 34]\n",
+            "\n",
+            "The last even number in [98, 41, 89, 72, 83, 92, 34] is 34 at index 6.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Exercise 10\n",
+        "\n",
+        "Define a tuple of integers.\n",
+        "\n",
+        "Iterate over all elements of the tuple and whenever an element is even replace its value with 0. If an element is odd, replace its value with 1.\n",
+        "\n",
+        "Save the results in a new tuple. Do not modify the original one.\n",
+        "\n",
+        "Then, make a string that will contain each element from the resulting tuple as a separate symbol in the string.\n",
+        "\n",
+        "    E.g. input: (7, 5, 6, 3, 2), output: '11010'"
+      ],
+      "metadata": {
+        "id": "4mfN_tzHcxV1"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "##### Solution"
+      ],
+      "metadata": {
+        "id": "QVlr-BKndfGh"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x = (7, 5, 6, 3, 2)\n",
+        "list_x = list(x)\n",
+        "\n",
+        "for i, item in enumerate(x):\n",
+        "    if item % 2 == 0:\n",
+        "        list_x[i] = 0\n",
+        "    else:\n",
+        "        list_x[i] = 1\n",
+        "\n",
+        "result = tuple(list_x)\n",
+        "print(f'result = {result}\\n')\n",
+        "\n",
+        "result_str = \"\"\n",
+        "for item in result:\n",
+        "    result_str += str(item)\n",
+        "print(f'result_str = {result_str}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XiUfVr-AcgQB",
+        "outputId": "6ca103e8-f8b1-4a1a-8c0f-08d0d12de5f6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "result = (1, 1, 0, 1, 0)\n",
+            "\n",
+            "result_str = 11010\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
