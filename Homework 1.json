@@ -1,0 +1,168 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "1fb777c7"
+      },
+      "source": [
+        "# Task 1 (2 points + 2 bonus points)\n",
+        "\n",
+        "Write a program that ask a user to input an integer.\n",
+        "\n",
+        "Then:\n",
+        "\n",
+        "1. Write a function that converts the integer from decimal to binary. (4 points)\n",
+        "    \n",
+        "2. Write a function that converts the integer from decimal to binary (using recursion) (4 bonus points)\n",
+        "    \n",
+        "**Hints**:\n",
+        "\n",
+        "- Read into the function **bin()** in Python.\n",
+        "- How to convert a decimal number to binary number : https://www.cuemath.com/numbers/decimal-to-binary/"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Solution"
+      ],
+      "metadata": {
+        "id": "eYbZjEpjx8Qb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "7MXXsRZ2x_Oi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "6942c7f4"
+      },
+      "source": [
+        "# Task 2 (2 points)\n",
+        "\n",
+        "Ask a user to input an integer. Then, write a function that checks if the inputted number is a prime number. The function should return True if the number is prime, otherwise it should return False.\n",
+        "\n",
+        "**Hint**: Prime numbers are natural numbers that are divisible by only 1 and the number itself."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Solution"
+      ],
+      "metadata": {
+        "id": "24FxYCeRyHDe"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "7bHBzENwyJOs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "aa716b5f"
+      },
+      "source": [
+        "# Task 3 (2 points)\n",
+        "\n",
+        "Given the list x = [1, 2, 3, 5, 7, 8, 10, 11, 14, 15, 16, 17], write a function that finds all sublists in x containing consecutive numbers.\n",
+        "\n",
+        "Example:\n",
+        "\n",
+        "    Input: x = [1, 2, 3, 5, 7, 8, 10, 11, 14, 15, 16, 17]\n",
+        "    \n",
+        "    Output:\n",
+        "    \n",
+        "         [[1, 2, 3], [5], [7, 8], [10, 11], [14, 15, 16, 17]]"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Solution"
+      ],
+      "metadata": {
+        "id": "Ju-ww4xFyoBa"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "N74w_SO3ypYJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "53dff3de"
+      },
+      "source": [
+        "# Problem 4 (2 points):\n",
+        "\n",
+        "Given two dictionaries (like in the example), write a function that constructs and returns a new dictionary called **color_values** that contains the values for the secondary colors.\n",
+        "    \n",
+        "Examples:\n",
+        "\n",
+        "    Input:\n",
+        "        \n",
+        "        primary_colors = {'red' : 10, 'blue' : 20, 'yellow' : 30}\n",
+        "\n",
+        "        secondary_colors = {'purple' : 'red and blue', 'orange' : 'red and yellow', 'green' : 'blue and yellow'}\n",
+        "\n",
+        "    Output:\n",
+        "    \n",
+        "        color_values = {'purple' : 30, 'orange' : 40, 'green' : 50}"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Solution"
+      ],
+      "metadata": {
+        "id": "SHpZuNoKzBGb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "UIjTa6AizCHE"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
