@@ -52,9 +52,6 @@ A special thanks to the instructors and mentors at **Brainster Academy** for the
 
 If you’re interested in discussing my projects or collaborating on data science tasks, feel free to reach out:
 
-- **Email**: [your-email@example.com](mailto\:your-email@example.com)
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile)
-- **GitHub**: [Your GitHub Profile](https://github.com/your-username)
 
 ---
 
